@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คลังความรู้และข้อสอบ STATS 50 ข้อ | 2110203 Comp Eng Math II</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- MathJax Library สำหรับเรนเดอร์สูตร LaTeX -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+  :root {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent-blue: #2563eb;
+    --accent-blue-light: #eff6ff;
+    --accent-teal: #0d9488;
+    --accent-teal-light: #f0fdf4;
+    --accent-amber: #d97706;
+    --accent-amber-light: #fffbeb;
+    --accent-rose: #e11d48;
+    --accent-rose-light: #fff1f2;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Sarabun', 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .container { max-width: 1040px; margin: 0 auto; }
+
+  header {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-blue-light);
+    color: var(--accent-blue);
+    font-size: 0.825rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle { color: var(--text-secondary); font-size: 1rem; }
+
+  .exam-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .info-item span { color: var(--text-muted); display: block; font-size: 0.8rem; }
+  .info-item strong { color: var(--text-primary); font-weight: 600; }
+
+  .toc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .toc-title { font-family: 'Prompt', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
+  .toc-list { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; }
+  .toc-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+  }
+  .toc-list a:hover { color: var(--accent-blue); background: var(--accent-blue-light); }
+
+  .section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: var(--accent-blue);
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    font-weight: 600;
+  }
+
+  .quiz-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-family: 'Prompt', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline { background: var(--bg-card); border-color: var(--border-color); color: var(--text-primary); }
+  .btn-outline:hover { background: var(--bg-main); border-color: var(--border-hover); }
+  .btn-primary { background: var(--accent-blue); color: white; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-sm { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+
+  .quiz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .quiz-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .question-tag {
+    font-family: 'Prompt', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    background: var(--accent-blue-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .question-text { font-size: 1rem; font-weight: 500; color: var(--text-primary); margin-bottom: 1.25rem; line-height: 1.6; }
+
+  .options-group { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem; }
+
+  .option-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: var(--bg-card);
+    transition: all 0.15s ease;
+    font-size: 0.925rem;
+    color: var(--text-secondary);
+  }
+
+  .option-label:hover { background: var(--bg-main); border-color: var(--border-hover); }
+  .option-label input[type="radio"] { margin-top: 0.2rem; accent-color: var(--accent-blue); }
+
+  .explanation-box {
+    display: none;
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+  }
+
+  .explanation-box.show { display: block; }
+  .explanation-box.correct { background: var(--accent-teal-light); border: 1px solid #bbf7d0; color: #166534; }
+  .explanation-box.incorrect { background: var(--accent-rose-light); border: 1px solid #fecdd3; color: #9f1239; }
+
+  .explanation-title { font-family: 'Prompt', sans-serif; font-weight: 600; margin-bottom: 0.4rem; }
+
+  footer { text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <span class="badge-tag">Complete Exam Question Bank (50 Questions)</span>
+    <h1>คลังข้อสอบ STATS ครบทั้ง 50 ข้อ พร้อมเฉลยและการแปลภาษา</h1>
+    <p class="subtitle">2110203 Computer Engineering Mathematics II (ข้อสอบฉบับจริงปี 2024 และ 2025)</p>
+
+    <div class="exam-info">
+      <div class="info-item">
+        <span>ข้อสอบทั้งหมด</span>
+        <strong>50 ข้อปรนัย (ปี 2024: 25 ข้อ | ปี 2025: 25 ข้อ)</strong>
+      </div>
+      <div class="info-item">
+        <span>การคิดคะแนน</span>
+        <strong>ตอบผิดหักคะแนน 1/2 ของข้อ (เว้นว่างไม่หัก)</strong>
+      </div>
+      <div class="info-item">
+        <span>ฟังก์ชันภาษา</span>
+        <strong>Default ภาษาอังกฤษ + ปุ่มแปลภาษาไทยทุกข้อ</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quiz Section -->
+  <div class="section" id="quiz-section">
+    <div class="quiz-header-bar">
+      <h2 class="section-title" style="margin-bottom:0;">
+        <span class="section-number">✓</span>
+        คลังข้อสอบฝึกทำ (Interactive Practice Quiz)
+      </h2>
+      <button class="btn btn-outline" id="global-lang-btn" onclick="toggleGlobalLanguage()">
+        🌐 Switch All to Thai / สลับเป็นภาษาไทยทั้งหมด
+      </button>
+    </div>
+    
+    <p style="margin-bottom: 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+      โจทย์ปรนัยทั้งหมด 50 ข้อจากข้อสอบจริงปี 2024 และ 2025[cite: 15, 16, 17, 18, 19, 26, 27, 28, 29] สามารถทำข้อสอบ ตรวจคำตอบ และสลับภาษา EN/TH ได้ตามต้องการ
+    </p>
+
+    <div id="quiz-container"></div>
+  </div>
+
+  <footer>
+    <p>คลังสรุปและข้อสอบวิชา 2110203 Computer Engineering Mathematics II (STATS) — CEDT Chulalongkorn University</p>
+  </footer>
+
+</div>
+
+<script>
+// ข้อมูลคลังข้อสอบเต็ม 50 ข้อ (2024: 25 ข้อ, 2025: 25 ข้อ)[cite: 15, 16, 17, 18, 19, 26, 27, 28, 29]
+const questionsData = [
+  // ===== ข้อสอบปี 2025 (25 ข้อ) =====[cite: 26, 27, 28, 29]
+  {
+    id: "2025-Q1", year: "2025 Q1", correct: 1,
+    en: {
+      question: "Q1. Which of the following statements best describes the primary goal of statistical estimation?",
+      options: [
+        "1) To calculate the exact probability of a future event using a known model.",
+        "2) To use observed data to infer the value of an unknown population parameter.",
+        "3) To prove that a chosen statistical model for a dataset is mathematically correct.",
+        "4) To simulate and generate a random sample of data from a known probability distribution."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>The main objective of statistical estimation is to infer unknown population parameters using sample observations."
+    },
+    th: {
+      question: "Q1. ข้อใดอธิบายเป้าหมายหลักของการประมาณค่าทางสถิติ (Statistical Estimation) ได้ถูกต้องที่สุด?",
+      options: [
+        "1) เพื่อคำนวณความน่าจะเป็นที่แน่นอนของเหตุการณ์ในอนาคตโดยใช้โมเดลที่ทราบค่า",
+        "2) เพื่อใช้ข้อมูลที่สังเกตได้ในการอนุมานค่าพารามิเตอร์ที่ไม่ทราบค่าของประชากร",
+        "3) เพื่อพิสูจน์ว่าโมเดลทางสถิติที่เลือกใช้มีความถูกต้องทางคณิตศาสตร์",
+        "4) เพื่อจำลองและสร้างกลุ่มตัวอย่างแบบสุ่มจากฟังก์ชันการแจกแจงความน่าจะเป็นที่ทราบค่า"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>เป้าหมายหลักคือการใช้ข้อมูลสุ่มจากกลุ่มตัวอย่างในการประมาณค่าพารามิเตอร์ของประชากร"
+    }
+  },
+  {
+    id: "2025-Q2", year: "2025 Q2", correct: 3,
+    en: {
+      question: "Q2. According to the principle of inverse transform sampling, if you have a random number generator that produces values from a Uniform (0,1) distribution, what function must you apply to these values to generate samples from a desired distribution Y?",
+      options: [
+        "1) The Probability Density Function (PDF) of Y.",
+        "2) The Cumulative Distribution Function (CDF) of Y.",
+        "3) The inverse of the Probability Density Function (PDF) of Y.",
+        "4) The inverse of the Cumulative Distribution Function (CDF) of Y."
+      ],
+      explanation: "<b>Answer: Choice 4</b><br>Inverse transform sampling applies $F_Y^{-1}(U)$ where $U \\sim \\text{Uniform}(0,1)$."
+    },
+    th: {
+      question: "Q2. ตามหลักการ Inverse Transform Sampling หากมีตัวสร้างเลขสุ่มแบบ Uniform (0,1) ต้องใช้ฟังก์ชันใดในการสร้างตัวอย่างจากการแจกแจง Y ที่ต้องการ?",
+      options: [
+        "1) PDF ของ Y",
+        "2) CDF ของ Y",
+        "3) Inverse PDF ของ Y",
+        "4) Inverse CDF ของ Y"
+      ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>ต้องใช้ฟังก์ชันอินเวอร์สของ CDF ($F_Y^{-1}$)"
+    }
+  },
+  {
+    id: "2025-Q3", year: "2025 Q3", correct: 2,
+    en: {
+      question: "Q3. What quantity is being maximized in Maximum Likelihood Estimation (MLE)?",
+      options: [
+        "1) The posterior probability of the parameter given the data, $P(\\theta|D)$.",
+        "2) The prior probability of the parameter, $P(\\theta)$.",
+        "3) The likelihood of the data given the parameter, $P(D|\\theta)$.",
+        "4) The evidence, or the marginal likelihood of the data, $P(D)$."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>MLE maximizes the likelihood of observing data given parameters $P(D|\\theta)$."
+    },
+    th: {
+      question: "Q3. ปริมาณใดที่ถูกทำให้มีค่ามากที่สุดใน Maximum Likelihood Estimation (MLE)?",
+      options: [
+        "1) ความน่าจะเป็นหลังเบย์ (Posterior probability) $P(\\theta|D)$",
+        "2) ความน่าจะเป็นล่วงหน้า (Prior probability) $P(\\theta)$",
+        "3) ความน่าจะเป็นของข้อมูลเมื่อกำหนดพารามิเตอร์ (Likelihood) $P(D|\\theta)$",
+        "4) Evidence หรือ Marginal likelihood $P(D)$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>MLE จะหาพารามิเตอร์ที่ทำให้เกิด Likelihood $P(D|\\theta)$ สูงสุด"
+    }
+  },
+  {
+    id: "2025-Q4", year: "2025 Q4", correct: 1,
+    en: {
+      question: "Q4. A researcher wants to estimate computer chip failure rates and believes from prior experience that it is very low. Which method incorporates this prior belief?",
+      options: [
+        "1) Maximum Likelihood Estimation (MLE)",
+        "2) Maximum A Posteriori (MAP) Estimation",
+        "3) The Method of Moments",
+        "4) Least Squares Estimation"
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>MAP incorporates prior knowledge $P(\\theta)$ alongside data likelihood."
+    },
+    th: {
+      question: "Q4. นักวิจัยต้องการประมาณอัตราการเสียของชิป และมีความเชื่อเดิมว่าอัตราการเสียน่าจะต่ำมาก วิธีใดอนุญาตให้ใส่ความเชื่อเดิม (Prior Belief) นี้ได้?",
+      options: [
+        "1) Maximum Likelihood Estimation (MLE)",
+        "2) Maximum A Posteriori (MAP) Estimation",
+        "3) The Method of Moments",
+        "4) Least Squares Estimation"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>MAP สามารถรวม Prior Belief เข้าไปในการประมาณค่าได้"
+    }
+  },
+  {
+    id: "2025-Q5", year: "2025 Q5", correct: 1,
+    en: {
+      question: "Q5. You observe 5 independent Bernoulli trials: {Success, Failure, Success, Success, Failure}. What is the likelihood function $L(p;D)$?",
+      options: [
+        "1) $p^{2}(1-p)^{3}$",
+        "2) $p^{3}(1-p)^{2}$",
+        "3) $\\binom{5}{3}p^{3}(1-p)^{2}$",
+        "4) $p(1-p)$"
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>With 3 Successes and 2 Failures in sequence: $L(p;D) = p^3(1-p)^2$."
+    },
+    th: {
+      question: "Q5. ผลลัพธ์จากการทดลอง Bernoulli 5 ครั้งเป็น {สำเร็จ, ล้มเหลว, สำเร็จ, สำเร็จ, ล้มเหลว} ฟังก์ชัน Likelihood $L(p;D)$ คือข้อใด?",
+      options: [
+        "1) $p^{2}(1-p)^{3}$",
+        "2) $p^{3}(1-p)^{2}$",
+        "3) $\\binom{5}{3}p^{3}(1-p)^{2}$",
+        "4) $p(1-p)$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>สำเร็จ 3 ครั้ง ($p^3$) และ ล้มเหลว 2 ครั้ง ($(1-p)^2$)"
+    }
+  },
+  {
+    id: "2025-Q6", year: "2025 Q6", correct: 3,
+    en: {
+      question: "Q6. A researcher sets significance level $\\alpha = 0.01$. What does this value represent?",
+      options: [
+        "1) The probability of correctly rejecting a false null hypothesis.",
+        "2) The acceptable probability of making a Type II error.",
+        "3) The probability that their result is 99% correct.",
+        "4) The acceptable probability of making a Type I error (rejecting a true null hypothesis)."
+      ],
+      explanation: "<b>Answer: Choice 4</b><br>Significance level $\\alpha$ is the upper limit of Type I error probability."
+    },
+    th: {
+      question: "Q6. นักวิจัยตั้งระดับนัยสำคัญ $\\alpha = 0.01$ ค่านี้แสดงถึงอะไร?",
+      options: [
+        "1) ความน่าจะเป็นที่จะปฏิเสธสมมติฐานหลักที่เป็นเท็จได้อย่างถูกต้อง",
+        "2) ความน่าจะเป็นที่ยอมรับได้ของการเกิด Type II error",
+        "3) ความน่าจะเป็นที่ผลลัพธ์จะถูกต้อง 99%",
+        "4) ความน่าจะเป็นที่ยอมรับได้ของการเกิด Type I error (ปฏิเสธสมมติฐานหลักที่เป็นจริง)"
+      ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>$\\alpha$ คือความเสี่ยงสูงสุดที่ยอมให้เกิด Type I error"
+    }
+  },
+  {
+    id: "2025-Q7", year: "2025 Q7", correct: 1,
+    en: {
+      question: "Q7. If p-value = 0.03 and $\\alpha = 0.05$, we reject $H_0$. What does this imply?",
+      options: [
+        "1) The alternative hypothesis ($H_A$) has been proven to be true.",
+        "2) The data provides evidence against the null hypothesis in favor of the alternative.",
+        "3) The null hypothesis has been proven to be false.",
+        "4) The probability that the null hypothesis is true is only 3%."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>Rejecting $H_0$ means sample evidence supports $H_A$ statistically, not absolute proof."
+    },
+    th: {
+      question: "Q7. ผลการทดสอบได้ p-value = 0.03 ที่ $\\alpha = 0.05$ จึงปฏิเสธ $H_0$ สรุปผลนี้หมายความว่าอย่างไร?",
+      options: [
+        "1) พิสูจน์แล้วว่าสมมติฐานทางเลือก ($H_A$) เป็นจริงแน่นอน",
+        "2) ข้อมูลให้หลักฐานคัดค้านสมมติฐานหลักเพื่อสนับสนุนสมมติฐานทางเลือก",
+        "3) พิสูจน์แล้วว่าสมมติฐานหลักเป็นเท็จแน่นอน",
+        "4) ความน่าจะเป็นที่สมมติฐานหลักจะจริงมีเพียง 3%"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>สถิติบอกถึงหลักฐานคัดค้าน $H_0$ ไม่ใช่การพิสูจน์ความจริง 100%"
+    }
+  },
+  {
+    id: "2025-Q8", year: "2025 Q8", correct: 1,
+    en: {
+      question: "Q8. Which best describes the problem of 'p-hacking'?",
+      options: [
+        "1) Correcting p-values for multiple comparisons.",
+        "2) Picking a statistical test to get the most significant result after data has been collected.",
+        "3) Reporting the effect size and confidence intervals alongside the p-value.",
+        "4) Setting significance level $\\alpha$ to a very low value like 0.001."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>P-hacking refers to manipulating tests/data post-hoc until obtaining $p < \\alpha$."
+    },
+    th: {
+      question: "Q8. ข้อใดอธิบายปัญหา 'p-hacking' ได้ถูกต้องที่สุด?",
+      options: [
+        "1) การปรับค่า p-value สำหรับการทดสอบหลายครั้งเพื่อคุม Type I error",
+        "2) การเลือกวิธีทดสอบสถิติเพื่อให้ได้ผลนัยสำคัญมากที่สุดหลังจากเก็บข้อมูลแล้ว",
+        "3) การรายงาน Effect size ร่วมกับ p-value",
+        "4) การตั้งค่าระดับนัยสำคัญ $\\alpha$ ให้ต่ำมาก เช่น 0.001"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>P-hacking คือการพยายามปรับวิธีคิด/เลือกข้อมูลเพื่อให้ได้ p-value ต่ำหลังเก็บข้อมูล"
+    }
+  },
+  {
+    id: "2025-Q9", year: "2025 Q9", correct: 2,
+    en: {
+      question: "Q9. As sample size increases (assuming constant effect size and variance), what happens to statistical power?",
+      options: [
+        "1) Power decreases.",
+        "2) Power is not affected by sample size.",
+        "3) Power increases.",
+        "4) Power becomes equal to significance level $\\alpha$."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>Larger sample sizes reduce standard error, increasing statistical power."
+    },
+    th: {
+      question: "Q9. เมื่อขนาดกลุ่มตัวอย่าง ($n$) เพิ่มขึ้น ค่า Statistical Power จะเปลี่ยนแปลงอย่างไร?",
+      options: [
+        "1) Power ลดลง",
+        "2) Power ไม่ได้รับผลกระทบ",
+        "3) Power เพิ่มขึ้น",
+        "4) Power เท่ากับระดับนัยสำคัญ $\\alpha$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>เมื่อ $n$ มากขึ้น ค่าความแปรปรวนของสถิติทดสอบจะลดลง ทำให้ Power เพิ่มขึ้น"
+    }
+  },
+  {
+    id: "2025-Q10", year: "2025 Q10", correct: 1,
+    en: {
+      question: "Q10. Why does the 'Base Rate Fallacy' cause significant results to often be false positives for unlikely hypotheses?",
+      options: [
+        "1) Because test power was too high.",
+        "2) Because the prior probability of the hypothesis being true is extremely low.",
+        "3) Because sample size was too large.",
+        "4) Because significance level $\\alpha$ was set too low."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>When prior probability is extremely low, false positives outnumber true positives."
+    },
+    th: {
+      question: "Q10. เหตุใด Base Rate Fallacy จึงทำให้ผลนัยสำคัญกลายเป็น False Positive ได้ง่ายในสมมติฐานที่ไม่น่าจะเกิดขึ้นจริง?",
+      options: [
+        "1) เพราะ Power ของการทดสอบสูงเกินไป",
+        "2) เพราะความน่าจะเป็นล่วงหน้า (Prior probability) ที่สมมติฐานจะจริงนั้นต่ำมาก",
+        "3) เพราะขนาดตัวอย่างใหญ่เกินไป",
+        "4) เพราะระดับนัยสำคัญ $\\alpha$ ถูกตั้งไว้ต่ำเกินไป"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>เมื่อ Prior ต่ำมาก จำนวนเคสที่เป็นจริงมีน้อย ทำให้ False Positive เด่นขึ้นมา"
+    }
+  },
+  {
+    id: "2025-Q11", year: "2025 Q11", correct: 0,
+    en: {
+      question: "Q11. Known CPU score population is Normal with $\\mu=5000, \\sigma=150$. Lab tests a sample of 25 cooled processors. Which test to use?",
+      options: [
+        "1) Z-test",
+        "2) One-sample t-test",
+        "3) Two-sample t-test",
+        "4) Paired t-test"
+      ],
+      explanation: "<b>Answer: Choice 1</b><br>Since population standard deviation $\\sigma$ is known, Z-test is required."
+    },
+    th: {
+      question: "Q11. ทราบว่าคะแนน CPU มีการแจกแจงปกติ $\\mu=5000, \\sigma=150$ สุ่มทดสอบ 25 เครื่องเพื่อดูว่าดีขึ้นหรือไม่ ควรใช้การทดสอบใด?",
+      options: [
+        "1) Z-test",
+        "2) One-sample t-test",
+        "3) Two-sample t-test",
+        "4) Paired t-test"
+      ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>รู้ค่า $\\sigma$ ของประชากร ต้องใช้ Z-test"
+    }
+  },
+  {
+    id: "2025-Q12", year: "2025 Q12", correct: 1,
+    en: {
+      question: "Q12. Laptop temp tested on $n=15$ laptops against $85^\\circ C$ spec. Population SD is unknown. Most appropriate test?",
+      options: [
+        "1) Z-test",
+        "2) One-sample t-test",
+        "3) Two-sample t-test",
+        "4) Paired t-test"
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>Population SD is unknown and comparing 1 sample mean to a target value $\\implies$ One-sample t-test."
+    },
+    th: {
+      question: "Q12. วัดอุณหภูมิโน้ตบุ๊ก 15 เครื่อง เทียบกับสเปก $85^\\circ C$ โดยไม่ทราบค่า $\\sigma$ ประชากร ควรใช้การทดสอบใด?",
+      options: [
+        "1) Z-test",
+        "2) One-sample t-test",
+        "3) Two-sample t-test",
+        "4) Paired t-test"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>ไม่ทราบค่า $\\sigma$ และเปรียบเทียบ 1 กลุ่มกับค่าคงที่ $\\implies$ One-sample t-test"
+    }
+  },
+  {
+    id: "2025-Q13", year: "2025 Q13", correct: 2,
+    en: {
+      question: "Q13. Z-test: $n=64, \\bar{x}=104, \\sigma=16, H_0: \\mu=100$. What is Z-statistic?",
+      options: [ "1) 0.25", "2) 1.0", "3) 2.0", "4) 4.0" ],
+      explanation: "<b>Answer: Choice 3</b><br>$Z = \\frac{104 - 100}{16 / \\sqrt{64}} = \\frac{4}{2} = 2.0$."
+    },
+    th: {
+      question: "Q13. Z-test: $n=64, \\bar{x}=104, \\sigma=16, H_0: \\mu=100$ ค่า Z-statistic คือเท่าใด?",
+      options: [ "1) 0.25", "2) 1.0", "3) 2.0", "4) 4.0" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>คำนวณ $Z = \\frac{104-100}{16/8} = 2.0$"
+    }
+  },
+  {
+    id: "2025-Q14", year: "2025 Q14", correct: 3,
+    en: {
+      question: "Q14. 50 hypothesis tests with Bonferroni correction at $\\alpha=0.05$. New significance level for each test?",
+      options: [ "1) 0.05", "2) 0.01", "3) 0.005", "4) 0.001" ],
+      explanation: "<b>Answer: Choice 4</b><br>$\\alpha_{\\text{new}} = \\frac{0.05}{50} = 0.001$."
+    },
+    th: {
+      question: "Q14. ทดสอบสมมติฐาน 50 ครั้ง ใช้ Bonferroni correction ที่ $\\alpha=0.05$ ระดับนัยสำคัญใหม่ต่อครั้งคือเท่าใด?",
+      options: [ "1) 0.05", "2) 0.01", "3) 0.005", "4) 0.001" ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>สูตร $\\alpha_{\\text{new}} = 0.05 / 50 = 0.001$"
+    }
+  },
+  {
+    id: "2025-Q15", year: "2025 Q15", correct: 2,
+    en: {
+      question: "Q15. Execution time measured on 4 inputs Before & After patch. Test type to use?",
+      options: [ "1) Two-sample t-test", "2) One-sample t-test", "3) Paired t-test", "4) Z-test" ],
+      explanation: "<b>Answer: Choice 3</b><br>Repeated measurements on same inputs $\\implies$ Paired t-test."
+    },
+    th: {
+      question: "Q15. วัดเวลาประมวลผลก่อนและหลังลง Patch บน Input 4 ตัวเดิม ควรใช้การทดสอบสถิติใด?",
+      options: [ "1) Two-sample t-test", "2) One-sample t-test", "3) Paired t-test", "4) Z-test" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>ข้อมูลจับคู่กันก่อน-หลังบน Input เดียวกัน $\\implies$ Paired t-test"
+    }
+  },
+  {
+    id: "2025-Q16", year: "2025 Q16", correct: 2,
+    en: {
+      question: "Q16. Differences Before-After: [5, 10, -1, 8]. Mean difference $\\bar{d}$?",
+      options: [ "1) -1.0 ms", "2) 3.5 ms", "3) 5.5 ms", "4) 22.0 ms" ],
+      explanation: "<b>Answer: Choice 3</b><br>$\\bar{d} = (5 + 10 - 1 + 8) / 4 = 22 / 4 = 5.5$."
+    },
+    th: {
+      question: "Q16. ค่าความต่าง (Before - After) = [5, 10, -1, 8] ค่าเฉลี่ยผลต่าง $\\bar{d}$ คือเท่าใด?",
+      options: [ "1) -1.0 ms", "2) 3.5 ms", "3) 5.5 ms", "4) 22.0 ms" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>$\\bar{d} = 22 / 4 = 5.5$ ms"
+    }
+  },
+  {
+    id: "2025-Q17", year: "2025 Q17", correct: 1,
+    en: {
+      question: "Q17. Sample SD of differences $s_d$ for [5, 10, -1, 8] with $\\bar{d}=5.5$?",
+      options: [ "1) 4.15", "2) 4.80", "3) 17.25", "4) 23.00" ],
+      explanation: "<b>Answer: Choice 2</b><br>$\\sum(d_i - 5.5)^2 = 0.25 + 20.25 + 42.25 + 6.25 = 69 \\implies s_d = \\sqrt{69/3} \\approx 4.80$."
+    },
+    th: {
+      question: "Q17. ส่วนเบี่ยงเบนมาตรฐาน $s_d$ ของผลต่าง [5, 10, -1, 8] คือเท่าใด?",
+      options: [ "1) 4.15", "2) 4.80", "3) 17.25", "4) 23.00" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>$s_d = \\sqrt{69/3} = \\sqrt{23} \\approx 4.80$"
+    }
+  },
+  {
+    id: "2025-Q18", year: "2025 Q18", correct: 2,
+    en: {
+      question: "Q18. t-statistic for testing if mean difference $> 0$ ($\\bar{d}=5.5, s_d=4.80, n=4$)?",
+      options: [ "1) 0.48", "2) 0.64", "3) 2.29", "4) 2.65" ],
+      explanation: "<b>Answer: Choice 3</b><br>$t = \\frac{5.5}{4.80 / \\sqrt{4}} = \\frac{5.5}{2.4} = 2.29$."
+    },
+    th: {
+      question: "Q18. ค่า t-statistic สำหรับทดสอบว่าผลต่างเฉลี่ย $> 0$ คือเท่าใด?",
+      options: [ "1) 0.48", "2) 0.64", "3) 2.29", "4) 2.65" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>$t = \\frac{5.5}{4.80/2} = 2.29$"
+    }
+  },
+  {
+    id: "2025-Q19", year: "2025 Q19", correct: 1,
+    en: {
+      question: "Q19. Decision at $\\alpha=0.05, df=3$ ($t_{\\text{crit}}=2.354, t_{\\text{calc}}=2.29$)?",
+      options: [ "1) We can reject null hypothesis", "2) We cannot reject null hypothesis", "3) Not enough info", "4) None" ],
+      explanation: "<b>Answer: Choice 2</b><br>Since $t_{\\text{calc}} = 2.29 < t_{\\text{crit}} = 2.354$, we fail to reject $H_0$."
+    },
+    th: {
+      question: "Q19. ข้อใดคือข้อสรุปเกี่ยวกับการทดลองนี้ที่ $\\alpha=0.05, df=3$?",
+      options: [ "1) สามารถปฏิเสธสมมติฐานหลักได้", "2) ไม่สามารถปฏิเสธสมมติฐานหลักได้", "3) ข้อมูลไม่เพียงพอ", "4) ผิดทุกข้อ" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>เพราะ $t_{\\text{calc}} (2.29) < t_{\\text{crit}} (2.354)$ จึงไม่สามารถปฏิเสธ $H_0$"
+    }
+  },
+  {
+    id: "2025-Q20", year: "2025 Q20", correct: 2,
+    en: {
+      question: "Q20. What should developer conclude?",
+      options: [
+        "1) Proven patch has no effect.",
+        "2) Patch has large negative impact.",
+        "3) Not enough statistical evidence at 5% significance level to claim patch improves performance.",
+        "4) Patch is proven to significantly improve performance."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>Failing to reject $H_0$ means there is insufficient evidence at 5% level."
+    },
+    th: {
+      question: "Q20. นักพัฒนาควรสรุปผลอย่างไร?",
+      options: [
+        "1) พิสูจน์แล้วว่า Patch ไม่มีผลใดๆ",
+        "2) Patch ส่งผลเสียอย่างมีนัยสำคัญ",
+        "3) หลักฐานทางสถิติที่ระดับนัยสำคัญ 5% ยังไม่เพียงพอที่จะอ้างว่า Patch ช่วยเพิ่มประสิทธิภาพ",
+        "4) พิสูจน์แล้วว่า Patch ช่วยเพิ่มประสิทธิภาพอย่างมีนัยสำคัญ"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>เมื่อปฎิเสธ $H_0$ ไม่ได้ สรุปคือหลักฐานยังไม่พอที่ระดับนัยสำคัญ 5%"
+    }
+  },
+  {
+    id: "2025-Q21", year: "2025 Q21", correct: 2,
+    en: {
+      question: "Q21. Which statement is FALSE about A/B testing?",
+      options: [
+        "1) Sample size calculation should be done before starting.",
+        "2) Multiple experiments require adjusting critical value for Type I error.",
+        "3) A small p-value (e.g., 0.0003) always means results are reliable and worth implementing.",
+        "4) Peeking p-value during experiment inflates Type I error rate."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>A tiny p-value doesn't guarantee practical/business importance or ROI."
+    },
+    th: {
+      question: "Q21. ข้อใดเป็นเท็จเกี่ยวกับ A/B testing?",
+      options: [
+        "1) ควรคำนวณขนาดตัวอย่างล่วงหน้าก่อนเริ่ม",
+        "2) ทำหลายทดลองต้องปรับ Critical value เพื่อคุม Type I error",
+        "3) p-value ขนาดเล็กมาก (เช่น 0.0003) หมายความว่าผลลัพธ์น่าเชื่อถือและคุ้มค่าที่จะนำไปใช้เสมอ",
+        "4) การแอบดู p-value ระหว่างทดลองจะทำให้ Type I error สูงขึ้น"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>p-value ต่ำไม่ได้แปลว่าคุ้มค่าทางธุรกิจเสมอไป ต้องดู Effect Size ประกอบ"
+    }
+  },
+  {
+    id: "2025-Q22", year: "2025 Q22", correct: 1,
+    en: {
+      question: "Q22. Which scenario is most suitable for Multi-Armed Bandit (MAB)?",
+      options: [
+        "1) Hospital predicting readmission risk from historical data.",
+        "2) News platform determining best headline from 5 options in real-time to maximize clicks.",
+        "3) Forecasting stock market prices from 20-year history.",
+        "4) Grouping customers into distinct segments."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>MAB optimizes online real-time trade-off between exploring headlines and exploiting top clickers."
+    },
+    th: {
+      question: "Q22. สถานการณ์ใดเหมาะกับการใช้ Multi-Armed Bandit (MAB) มากที่สุด?",
+      options: [
+        "1) โรงพยาบาลทำระบบทำนายความเสี่ยงผู้ป่วยจากประวัติเดิม",
+        "2) เว็บข่าวทดสอบพาดหัว 5 แบบ Real-time เพื่อเพิ่มยอดคลิกสูงสุด",
+        "3) สถาบันวิจัยทำนายราคาหุ้นจากข้อมูล 20 ปี",
+        "4) ทีมการตลาดจัดกลุ่มลูกค้าเป็น Segment"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>MAB เหมาะกับการทดสอบและปรับเปลี่ยนทางเลือกแบบ Real-time เช่น หัวข้อข่าว"
+    }
+  },
+  {
+    id: "2025-Q23", year: "2025 Q23", correct: 2,
+    en: {
+      question: "Q23. Which MAB algorithm does NOT have any parameters to choose?",
+      options: [ "1) Softmax", "2) Epsilon-greedy", "3) UCB1", "4) All techniques have parameters" ],
+      explanation: "<b>Answer: Choice 3</b><br>UCB1 is parameter-free."
+    },
+    th: {
+      question: "Q23. อัลกอริทึม MAB ข้อใดไม่มีพารามิเตอร์ให้ต้องเลือกปรับแต่ง?",
+      options: [ "1) Softmax", "2) Epsilon-greedy", "3) UCB1", "4) ทุกเทคนิคมีพารามิเตอร์" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>UCB1 เป็น Parameter-free algorithm"
+    }
+  },
+  {
+    id: "2025-Q24", year: "2025 Q24", correct: 3,
+    en: {
+      question: "Q24. Which technique requires the most sophisticated infrastructure?",
+      options: [ "1) Statistical Testing", "2) AB Testing", "3) AA Testing", "4) MAB" ],
+      explanation: "<b>Answer: Choice 4</b><br>MAB requires real-time automated allocation infrastructure."
+    },
+    th: {
+      question: "Q24. เทคนิคใดต้องใช้โครงสร้างพื้นฐาน (Infrastructure) ที่ซับซ้อนที่สุด?",
+      options: [ "1) Statistical Testing", "2) AB Testing", "3) AA Testing", "4) MAB" ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>MAB ต้องใช้โครงสร้างระบบที่เปลี่ยน Traffic ได้แบบอัตโนมัติ Real-time"
+    }
+  },
+  {
+    id: "2025-Q25", year: "2025 Q25", correct: 1,
+    en: {
+      question: "Q25. Sample size statements: (i) Stop immediately after target N reached. (ii) Two-sided requires larger N than one-sided. Which are true?",
+      options: [ "1) (i) only", "2) (ii) only", "3) (i) and (ii)", "4) Neither" ],
+      explanation: "<b>Answer: Choice 2</b><br>(ii) is true. (i) is misleading as stopping rule depends on predefined design."
+    },
+    th: {
+      question: "Q25. ข้อใดถูกต้องเกี่ยวกับขนาดตัวอย่าง: (i) ควรหยุดทดลองทันทีที่ได้ N ตามคำนวณ (ii) Two-sided ต้องการ sample size มากกว่า One-sided",
+      options: [ "1) (i) เท่านั้น", "2) (ii) เท่านั้น", "3) ทั้ง (i) และ (ii)", "4) ผิดทั้งคู่" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>(ii) ถูกต้อง การทดสอบสองทิศทางต้องใช้ขนาดตัวอย่างมากกว่า"
+    }
+  },
+
+  // ===== ข้อสอบปี 2024 (25 ข้อ) =====[cite: 15, 16, 17, 18, 19]
+  {
+    id: "2024-Q1", year: "2024 Q1", correct: 0,
+    en: {
+      question: "Q1. Hamtaro opened 4 loot boxes on 38th, 64th, 13th, 14th tries (fails: 37, 63, 12, 13). Likelihood function of drop rate p?",
+      options: [
+        "1) $(1-p)^{125}p^{4}$",
+        "2) $(1-p)^{121}p^{4}$",
+        "3) $\\lambda^{4}e^{-125\\lambda}$",
+        "4) $\\lambda^{4}e^{-121\\lambda}$"
+      ],
+      explanation: "<b>Answer: Choice 1</b><br>Total failures $= 37+63+12+13 = 125$, total wins $= 4 \\implies L(p) = (1-p)^{125} p^4$."
+    },
+    th: {
+      question: "Q1. แฮมทาโร่เปิดกล่องสุ่ม 4 กล่อง โดยเปิดพลาด 37, 63, 12, 13 ครั้งก่อนชนะ ฟังก์ชัน Likelihood ของอัตราดร็อป p คือข้อใด?",
+      options: [
+        "1) $(1-p)^{125}p^{4}$",
+        "2) $(1-p)^{121}p^{4}$",
+        "3) $\\lambda^{4}e^{-125\\lambda}$",
+        "4) $\\lambda^{4}e^{-121\\lambda}$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>ล้มเหลวรวม $37+63+12+13 = 125$ ครั้ง สำเร็จ 4 ครั้ง $\\implies (1-p)^{125}p^4$"
+    }
+  },
+  {
+    id: "2024-Q2", year: "2024 Q2", correct: 2,
+    en: {
+      question: "Q2. Which statement is correct about sampling?",
+      options: [
+        "1) Sampling from a distribution is not possible.",
+        "2) The CDF is used to sample from a distribution.",
+        "3) Sampling is a process to generate a random number that follow a specific distribution.",
+        "4) It is possible to calculate $F^{-1}(1)$ where F is the CDF."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>Sampling refers to generating numbers adhering to a specific probability distribution."
+    },
+    th: {
+      question: "Q2. ข้อใดกล่าวถูกต้องเกี่ยวกับการสุ่มตัวอย่าง (Sampling)?",
+      options: [
+        "1) การสุ่มตัวอย่างจากการแจกแจงไม่สามารถทำได้",
+        "2) ใช้ CDF ในการสุ่มตัวอย่างจากการแจกแจงตรงๆ",
+        "3) Sampling คือกระบวนการสร้างตัวเลขสุ่มให้เป็นไปตามการแจกแจงที่กำหนด",
+        "4) สามารถคำนวณ $F^{-1}(1)$ ได้เสมอ"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>นิยามของ Sampling คือการสร้างตัวเลขสุ่มตามการแจกแจงที่ต้องการ"
+    }
+  },
+  {
+    id: "2024-Q3", year: "2024 Q3", correct: 0,
+    en: {
+      question: "Q3. Which statement is NOT correct?",
+      options: [
+        "1) Bayes statistics does not care about likelihood.",
+        "2) The way of Bayes statistics is more computing intensive.",
+        "3) Frequentists also use Bayes rules if the priors are known.",
+        "4) Bayes statistics may require estimation of priors."
+      ],
+      explanation: "<b>Answer: Choice 1</b><br>Bayesian statistics relies heavily on likelihood $P(D|\\theta)$ along with priors."
+    },
+    th: {
+      question: "Q3. ข้อใดกล่าวไม่ถูกต้อง?",
+      options: [
+        "1) สถิติแบบเบย์ (Bayes statistics) ไม่สนใจค่า Likelihood",
+        "2) สถิติแบบเบย์ต้องใช้พลังการคำนวณสูงกว่า",
+        "3) สาย Frequentist ก็ใช้กฎของเบย์หากทราบค่า Prior",
+        "4) สถิติแบบเบย์อาจต้องมีการประเมินค่า Prior"
+      ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>สถิติแบบเบย์ใช้ Likelihood เป็นส่วนสำคัญร่วมกับ Prior"
+    }
+  },
+  {
+    id: "2024-Q4", year: "2024 Q4", correct: 2,
+    en: {
+      question: "Q4. How many statements are correct? A) $U(a,b) \\implies \\hat{a}=\\max x_i, \\hat{b}=\\min x_i$. B) $exp(\\lambda)$ for [1,4,3,2,8,9,12,5,3,3] $\\implies \\hat{\\lambda}=1/5$. C) $N(\\bar{x},s^2) \\implies \\hat{\\sigma}^2=s^2$.",
+      options: [ "1) Zero", "2) One", "3) Two", "4) Three" ],
+      explanation: "<b>Answer: Choice 3</b><br>B and C are correct. A is wrong (for $U(a,b)$, $\\hat{a}=\\min, \\hat{b}=\\max$)."
+    },
+    th: {
+      question: "Q4. มีข้อความที่ถูกต้องกี่ข้อ? A) $U(a,b) \\implies \\hat{a}=\\max, \\hat{b}=\\min$ B) ข้อมูล 10 ตัวเฉลี่ย 5 ของ $exp(\\lambda) \\implies \\hat{\\lambda}=1/5$ C) $N(\\bar{x},s^2) \\implies \\hat{\\sigma}^2=s^2$",
+      options: [ "1) ศูนย์ข้อ", "2) หนึ่งข้อ", "3) สองข้อ", "4) สามข้อ" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>ถูกต้อง 2 ข้อ (B และ C) ส่วน A ผิดเพราะ $\\hat{a}$ ต้องเป็นค่า min และ $\\hat{b}$ เป็นค่า max"
+    }
+  },
+  {
+    id: "2024-Q5", year: "2024 Q5", correct: 1,
+    en: {
+      question: "Q5. Shooting stars in 3 hours: 8, 4, 3. Assuming Poisson distribution, find MLE $\\hat{\\lambda}$.",
+      options: [ "1) 3", "2) 5", "3) 8", "4) 15" ],
+      explanation: "<b>Answer: Choice 2</b><br>MLE for Poisson $\\hat{\\lambda} = \\bar{x} = (8+4+3)/3 = 15/3 = 5$."
+    },
+    th: {
+      question: "Q5. ดารากระจาย 3 ชั่วโมงนับได้ 8, 4, 3 ถือว่ากระจายแบบ Poisson จงหา MLE $\\hat{\\lambda}$",
+      options: [ "1) 3", "2) 5", "3) 8", "4) 15" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>MLE ของ Poisson คือค่าเฉลี่ย $\\bar{x} = 15/3 = 5$"
+    }
+  },
+  {
+    id: "2024-Q6", year: "2024 Q6", correct: 3,
+    en: {
+      question: "Q6. What is NOT the purpose of Null Hypothesis Significance Testing?",
+      options: [
+        "1) To make a decision between two options.",
+        "2) To see if there is a change after some intervention.",
+        "3) To see if two sets of data are significantly different.",
+        "4) To be 100% sure that the experiment result is correct."
+      ],
+      explanation: "<b>Answer: Choice 4</b><br>Statistical testing works with probabilities, never giving 100% certainty."
+    },
+    th: {
+      question: "Q6. ข้อใดไม่ใช่เป้าหมายของการทดสอบสมมติฐานทางสถิติ (NHST)?",
+      options: [
+        "1) เพื่อทำการตัดสินใจระหว่าง 2 ทางเลือก",
+        "2) เพื่อดูว่าเกิดการเปลี่ยนแปลงหลังการแทรกแซงหรือไม่",
+        "3) เพื่อดูว่าข้อมูล 2 ชุดแตกต่างกันอย่างมีนัยสำคัญหรือไม่",
+        "4) เพื่อให้แน่ใจ 100% ว่าผลการทดลองถูกต้อง"
+      ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>การทดสอบสถิติไม่เคยให้ความแน่นอน 100%"
+    }
+  },
+  {
+    id: "2024-Q7", year: "2024 Q7", correct: 1,
+    en: {
+      question: "Q7. Statements: A) Null hypothesis is common default assumption. B) Rejection region same across all experiments. C) You can reject alternate hypothesis. How many correct?",
+      options: [ "1) Zero", "2) One", "3) Two", "4) Three" ],
+      explanation: "<b>Answer: Choice 2</b><br>Only A is correct."
+    },
+    th: {
+      question: "Q7. ข้อใดถูกต้องเกี่ยวกับสมมติฐาน: A) Null hypothesis คือสมมติฐานเริ่มต้นทั่วไป B) เขตปฏิเสธเหมือนกันทุกการทดลอง C) คุณสามารถปฏิเสธสมมติฐานทางเลือกได้ มีถูกกี่ข้อ?",
+      options: [ "1) ศูนย์ข้อ", "2) หนึ่งข้อ", "3) สองข้อ", "4) สามข้อ" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>ถูกต้องเพียงข้อเดียวคือ A"
+    }
+  },
+  {
+    id: "2024-Q8", year: "2024 Q8", correct: 2,
+    en: {
+      question: "Q8. What is NOT correct about Type-I error?",
+      options: [
+        "1) Type-I error is also called 'false-positive'.",
+        "2) Significance level signifies acceptable probability of Type-I error.",
+        "3) You should always prioritize lowering the probability of Type-I error.",
+        "4) All statements are correct."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>Lowering Type I error too much increases Type II error ($\beta$), so a balance is required."
+    },
+    th: {
+      question: "Q8. ข้อใดไม่ถูกต้องเกี่ยวกับ Type-I error?",
+      options: [
+        "1) เรียกอีกอย่างว่า False-positive",
+        "2) ระดับนัยสำคัญแสดงถึงความน่าจะเป็นที่ยอมรับได้ของ Type-I error",
+        "3) ควรให้ความสำคัญกับการลดโอกาสเกิด Type-I error ให้ต่ำที่สุดเสมอ",
+        "4) ถูกต้องทุกข้อ"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>การลด Type-I error ให้ต่ำเกินไปจะส่งผลให้ Type-II error สูงขึ้น จึงต้องสมดุลกัน"
+    }
+  },
+  {
+    id: "2024-Q9", year: "2024 Q9", correct: 3,
+    en: {
+      question: "Q9. Which situation describes the base rate fallacy?",
+      options: [
+        "1) When p-value is above 0.95.",
+        "2) When population mean and hypothesized mean are similar.",
+        "3) When 5 out of 100 tests result in Type-I error at $\\alpha=0.05$.",
+        "4) Measuring effectiveness of a vaccine when natural infection rate is $<1\\%$."
+      ],
+      explanation: "<b>Answer: Choice 4</b><br>Low natural rate ($<1\\%$) means positive test results have high false positive rates due to base rate fallacy."
+    },
+    th: {
+      question: "Q9. สถานการณ์ใดอธิบายถึง Base rate fallacy?",
+      options: [
+        "1) เมื่อ p-value สูงกว่า 0.95",
+        "2) เมื่อค่าเฉลี่ยประชากรใกล้เคียงกับสมมติฐาน",
+        "3) เมื่อ 5 ใน 100 การทดลองเกิด Type-I error ที่ $\\alpha=0.05$",
+        "4) การวัดประสิทธิภาพวัคซีนเมื่ออัตราติดเชื้อตามธรรมชาติมีน้อยกว่า $1\\%$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>เมื่ออัตราตามธรรมชาติต่ำมาก ($<1\\%$) ผลบวกจริงจะมีสัดส่วนน้อยมากเทียบกับผลบวกลวง"
+    }
+  },
+  {
+    id: "2024-Q10", year: "2024 Q10", correct: 1,
+    en: {
+      question: "Q10. Which probability describes experiment power?",
+      options: [
+        "1) $P(\\text{reject } H_0 | H_0)$",
+        "2) $P(\\text{reject } H_0 | H_1)$",
+        "3) $P(\\text{not reject } H_0 | H_0)$",
+        "4) $P(\\text{not reject } H_0 | H_1)$"
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>Power is the probability of rejecting $H_0$ given that the alternative $H_1$ is true."
+    },
+    th: {
+      question: "Q10. ความน่าจะเป็นใดอธิบายถึง Statistical Power?",
+      options: [
+        "1) $P(\\text{reject } H_0 | H_0)$",
+        "2) $P(\\text{reject } H_0 | H_1)$",
+        "3) $P(\\text{not reject } H_0 | H_0)$",
+        "4) $P(\\text{not reject } H_0 | H_1)$"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>Power คือโอกาสปฏิเสธ $H_0$ ถูกต้องเมื่อ $H_1$ เป็นจริง"
+    }
+  },
+  {
+    id: "2024-Q11", year: "2024 Q11", correct: 2,
+    en: {
+      question: "Q11. What is the purpose of p-value adjustment in multiple testing (e.g. Bonferroni)?",
+      options: [
+        "1) Prevent experimenter from artificially lowering p-value.",
+        "2) Ensure each test has correct Type-I error.",
+        "3) Control rate of Type-I error across all experiments.",
+        "4) Calculate p-value automatically."
+      ],
+      explanation: "<b>Answer: Choice 3</b><br>Adjustment controls the overall Family-Wise Error Rate (FWER)."
+    },
+    th: {
+      question: "Q11. จุดประสงค์ของการปรับ p-value ในการทดสอบหลายครั้ง (เช่น Bonferroni) คืออะไร?",
+      options: [
+        "1) ป้องกันไม่ให้นักวิจัยแอบลดค่า p-value",
+        "2) เพื่อให้แน่ใจว่าแต่ละทดลองมี Type-I error ถูกต้อง",
+        "3) เพื่อควบคุมอัตราการเกิด Type-I error รวมในทุกการทดลอง",
+        "4) เพื่อคำนวณ p-value ให้อัตโนมัติ"
+      ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>เพื่อควบคุมความเสี่ยงของการเกิด Type-I error รวมทั้งหมด (FWER)"
+    }
+  },
+  {
+    id: "2024-Q12", year: "2024 Q12", correct: 2,
+    en: {
+      question: "Q12. Compare ice cream scoop weight for 50 kids vs 50 adults. Which test?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>Answer: Choice 3</b><br>Two independent groups (50 kids vs 50 adults) $\\implies$ Two-sample t-test."
+    },
+    th: {
+      question: "Q12. เปรียบเทียบน้ำหนักไอศกรีมที่ตักให้เด็ก 50 คน และผู้ใหญ่ 50 คน ควรใช้สถิติใด?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>เปรียบเทียบ 2 กลุ่มที่เป็นอิสระต่อกัน $\\implies$ Two-sample t-test"
+    }
+  },
+  {
+    id: "2024-Q13", year: "2024 Q13", correct: 2,
+    en: {
+      question: "Q13. Compare yield of farmers given organic vs chemical fertilizer. Which test?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>Answer: Choice 3</b><br>Two separate groups of farmers receiving different treatments $\\implies$ Two-sample t-test."
+    },
+    th: {
+      question: "Q13. เปรียบเทียบผลผลิตปุ๋ยอินทรีย์กับปุ๋ยเคมีในเกษตรกร 2 กลุ่ม ควรใช้สถิติใด?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>เปรียบเทียบผลลัพธ์ของ 2 กลุ่มแยกกัน $\\implies$ Two-sample t-test"
+    }
+  },
+  {
+    id: "2024-Q14", year: "2024 Q14", correct: 0,
+    en: {
+      question: "Q14. World IQ distribution is $N(100,15)$. Test if Engineering students are above average. Which test?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>Answer: Choice 1</b><br>Population parameters $\\mu=100, \\sigma=15$ are known $\\implies$ Z-test."
+    },
+    th: {
+      question: "Q14. ทราบว่า IQ ประชากรโลกเป็น $N(100,15)$ ต้องการทดสอบว่าเด็กวิศวะ IQ สูงกว่าเฉลี่ยหรือไม่ ควรใช้การทดสอบใด?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>รู้ค่าส่วนเบี่ยงเบนมาตรฐานประชากร $\\sigma=15$ $\\implies$ Z-test"
+    }
+  },
+  {
+    id: "2024-Q15", year: "2024 Q15", correct: 3,
+    en: {
+      question: "Q15. Moo Deng fruit preference: Fruit A vs Fruit B intake measured daily over several days. Test?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>Answer: Choice 4</b><br>Measurements of Fruit A and B taken on the same hippo each day $\\implies$ Paired t-test."
+    },
+    th: {
+      question: "Q15. วัดปริมาณกินผลไม้ A และ B ของหมูเด้งทุกวันเป็นเวลาหลายวัน เพื่อดูว่าชอบอันไหนมากกว่า ใช้สถิติใด?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>วัดผลไม้ทั้งสองชนิดกับหมูเด้งตัวเดิมในวันเดียวกัน $\\implies$ Paired t-test"
+    }
+  },
+  {
+    id: "2024-Q16", year: "2024 Q16", correct: 3,
+    en: {
+      question: "Q16. Daily income of HamHub vs Casino for 7 days (same user base). Test to run?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>Answer: Choice 4</b><br>Pairwise daily revenue for 7 days $\\implies$ Paired t-test."
+    },
+    th: {
+      question: "Q16. เปรียบเทียบรายได้รายวัน 7 วันของ HamHub กับ Casino (กลุ่มผู้ใช้เดียวกัน) ควรใช้สถิติใด?",
+      options: [ "1) Z-test", "2) One-sample t-test", "3) Two-sample t-test", "4) Paired t-test" ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>ข้อมูลเปรียบเทียบรายวันจับคู่กัน 7 วัน $\\implies$ Paired t-test"
+    }
+  },
+  {
+    id: "2024-Q17", year: "2024 Q17", correct: 1,
+    en: {
+      question: "Q17. Is alternative hypothesis one-sided or two-sided (Hamtaro sells only if one business makes significantly MORE)?",
+      options: [ "1) Zero-sided", "2) One-sided", "3) Two-sided", "4) Three-sided" ],
+      explanation: "<b>Answer: Choice 2</b><br>Directional hypothesis (making significantly more) $\\implies$ One-sided test."
+    },
+    th: {
+      question: "Q17. สมมติฐานทางเลือกเป็นแบบ One-sided หรือ Two-sided (แฮมทาโร่ขายก็ต่อเมื่อธุรกิจหนึ่งทำเงินได้มากกว่าอีกอันอย่างมีนัยสำคัญ)?",
+      options: [ "1) Zero-sided", "2) One-sided", "3) Two-sided", "4) Three-sided" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>สนใจเฉพาะทิศทางว่ามากกว่า $\\implies$ One-sided"
+    }
+  },
+  {
+    id: "2024-Q18", year: "2024 Q18", correct: 0,
+    en: {
+      question: "Q18. What is the null distribution for 7 days of paired data?",
+      options: [ "1) $T(df=6)$", "2) $T(df=12)$", "3) $T(df=14)$", "4) $N(0,1)$" ],
+      explanation: "<b>Answer: Choice 1</b><br>Degrees of freedom for paired test with $n=7$ is $df = 7-1 = 6$."
+    },
+    th: {
+      question: "Q18. การแจกแจงแบบ Null distribution สำหรับข้อมูลจับคู่ 7 วันคืออะไร?",
+      options: [ "1) $T(df=6)$", "2) $T(df=12)$", "3) $T(df=14)$", "4) $N(0,1)$" ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>ค่า $df = n - 1 = 7 - 1 = 6$"
+    }
+  },
+  {
+    id: "2024-Q19", year: "2024 Q19", correct: 0,
+    en: {
+      question: "Q19. What is the p-value of this experiment (HamHub mean=2, Casino mean=2)?",
+      options: [ "1) 0.5", "2) 0.05", "3) 0.005", "4) 0.0005" ],
+      explanation: "<b>Answer: Choice 1</b><br>Mean difference is near zero, yielding a high p-value near 0.5."
+    },
+    th: {
+      question: "Q19. ค่า p-value ของการทดลองนี้ใกล้เคียงข้อใดมากที่สุด (เฉลี่ยรายได้ HamHub=2M, Casino=2M)?",
+      options: [ "1) 0.5", "2) 0.05", "3) 0.005", "4) 0.0005" ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>ค่าเฉลี่ยเท่ากัน ผลต่างใกล้ 0 ค่า p-value จะสูงเข้าใกล้ 0.5"
+    }
+  },
+  {
+    id: "2024-Q20", year: "2024 Q20", correct: 1,
+    en: {
+      question: "Q20. What CANNOT be concluded from the data?",
+      options: [
+        "1) HamHub makes 2 million baht per day on average.",
+        "2) Casino makes significantly more money than HamHub at $\\alpha=0.05$.",
+        "3) People do not like to go to casino on weekend.",
+        "4) Friday is the most profitable day."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>Statistically, there is no significant difference between the two."
+    },
+    th: {
+      question: "Q20. ข้อใดเป็นข้อสรุปที่ไม่สามารถสรุปได้จากข้อมูล?",
+      options: [
+        "1) HamHub ทำรายได้เฉลี่ย 2 ล้านบาทต่อวัน",
+        "2) Casino ทำเงินได้มากกว่า HamHub อย่างมีนัยสำคัญที่ $\\alpha=0.05$",
+        "3) คนไม่ชอบไป Casino วันเสาร์อาทิตย์",
+        "4) วันศุกร์เป็นวันที่ทำกำไรได้มากที่สุด"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>สถิติชี้ว่ารายได้ไม่แตกต่างกันอย่างมีนัยสำคัญ"
+    }
+  },
+  {
+    id: "2024-Q21", year: "2024 Q21", correct: 0,
+    en: {
+      question: "Q21. Which technique CANNOT be used to identify cause-and-effect relationship between two factors?",
+      options: [ "1) Statistical testing", "2) RCT", "3) A/B testing", "4) MAB" ],
+      explanation: "<b>Answer: Choice 1</b><br>Observational statistical testing alone without controlled experiment setup cannot prove causality."
+    },
+    th: {
+      question: "Q21. เทคนิคใดไม่สามารถใช้ระบุความสัมพันธ์แบบเป็นเหตุเป็นผล (Cause and effect) ได้?",
+      options: [ "1) Statistical testing", "2) RCT", "3) A/B testing", "4) MAB" ],
+      explanation: "<b>เฉลย: ข้อ 1</b><br>การทดสอบทางสถิติทั่วไปบอกได้เพียงความสัมพันธ์ (Correlation) ไม่สามารถยืนยันความเป็นเหตุเป็นผลได้"
+    }
+  },
+  {
+    id: "2024-Q22", year: "2024 Q22", correct: 2,
+    en: {
+      question: "Q22. Which MAB algorithm has the most exploration after some time has passed?",
+      options: [ "1) Softmax (T=0.1)", "2) Softmax (T=0.5)", "3) Epsilon-greedy (\\epsilon=0.1)", "4) UCB1" ],
+      explanation: "<b>Answer: Choice 3</b><br>Epsilon-greedy with fixed $\\epsilon=0.1$ continues exploring 10% of the time indefinitely."
+    },
+    th: {
+      question: "Q22. อัลกอริทึม MAB ข้อใดยังคงทำการสุ่มสำรวจ (Exploration) มากที่สุดเมื่อเวลาผ่านไป?",
+      options: [ "1) Softmax (T=0.1)", "2) Softmax (T=0.5)", "3) Epsilon-greedy (\\epsilon=0.1)", "4) UCB1" ],
+      explanation: "<b>เฉลย: ข้อ 3</b><br>Epsilon-greedy จะคงสัดส่วนการสำรวจไว้คงที่ที่ $\\epsilon=0.1$ ตลอดเวลา"
+    }
+  },
+  {
+    id: "2024-Q23", year: "2024 Q23", correct: 1,
+    en: {
+      question: "Q23. Which statement is FALSE about A/B testing?",
+      options: [
+        "1) Longer granularity is undesirable because it is harder to track.",
+        "2) If we conduct multiple experiments, critical value should be higher than usual.",
+        "3) Even split (50/50) is used when experiment doesn't affect business value much.",
+        "4) Monitoring p-value during run (peeking) increases Type I error."
+      ],
+      explanation: "<b>Answer: Choice 2</b><br>Multiple testing actually requires lowering $\\alpha$ (or adjusting critical value accordingly to be stricter)."
+    },
+    th: {
+      question: "Q23. ข้อใดเป็นเท็จเกี่ยวกับ A/B testing?",
+      options: [
+        "1) การวัดผลระยะยาวไม่พึงประสงค์เพราะติดตามยาก",
+        "2) หากทำหลายการทดลอง ควรใช้ค่า Critical value ที่สูงกว่าปกติ",
+        "3) การแบ่งกลุ่ม 50/50 เหมาะกับทดลองที่ไม่กระทบมูลค่าธุรกิจมาก",
+        "4) การแอบดู p-value ขณะทดลองรันอยู่จะเพิ่ม Type I error"
+      ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>เมื่อทำการทดลองหลายชุด ต้องควบคุม FWER โดยปรับระดับนัยสำคัญให้เข้มงวดขึ้น"
+    }
+  },
+  {
+    id: "2024-Q24", year: "2024 Q24", correct: 3,
+    en: {
+      question: "Q24. Which situation is most suitable for MAB?",
+      options: [
+        "1) Koshi-kun poll for mayor election.",
+        "2) Hamtaro finding best channel for 11/11 campaign.",
+        "3) Store layout optimization for Hamster Mart.",
+        "4) Ribbon-chan newsfeed personalization for InstraHam."
+      ],
+      explanation: "<b>Answer: Choice 4</b><br>Real-time recommendation feed (InstraHam) is the classic MAB use case."
+    },
+    th: {
+      question: "Q24. สถานการณ์ใดเหมาะกับการใช้ MAB มากที่สุด?",
+      options: [
+        "1) การทำโพลสำรวจการเลือกตั้งนายกเทศมนตรี",
+        "2) การหาช่องทางโฆษณาที่ดีที่สุดสำหรับแคมเปญ 11/11",
+        "3) การจัดวางผังร้านค้าสะดวกซื้อ",
+        "4) การทำระบบจัด Feed ข่าวส่วนบุคคลบน InstraHam"
+      ],
+      explanation: "<b>เฉลย: ข้อ 4</b><br>ระบบแนะนำคอนเทนต์แบบ Real-time บน Social Media เหมาะกับ MAB มากที่สุด"
+    }
+  },
+  {
+    id: "2024-Q25", year: "2024 Q25", correct: 1,
+    en: {
+      question: "Q25. Sample size needed for testing GMO sunflower (power=0.5, $\\alpha=0.05$, mean=1, var=0.04)? Closest number?",
+      options: [ "1) 5", "2) 45", "3) 90", "4) 180" ],
+      explanation: "<b>Answer: Choice 2</b><br>Based on sample size calculation formulas for specified power and effect size."
+    },
+    th: {
+      question: "Q25. ต้องใช้ต้นทานตะวัน GMO จำนวนกี่ต้นในการทดสอบสมมติฐาน (Power=0.5, $\\alpha=0.05$, Variance=0.04)?",
+      options: [ "1) 5", "2) 45", "3) 90", "4) 180" ],
+      explanation: "<b>เฉลย: ข้อ 2</b><br>จากการคำนวณขนาดตัวอย่างทางสถิติได้ค่าประมาณ 45 ต้น"
+    }
+  }
+];
+
+const langState = {};
+
+function initQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+
+  questionsData.forEach((q) => {
+    langState[q.id] = langState[q.id] || 'en';
+    const currentLang = langState[q.id];
+    const qContent = q[currentLang];
+
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.id = `card-${q.id}`;
+
+    let optionsHtml = '';
+    qContent.options.forEach((opt, optIdx) => {
+      optionsHtml += `
+        <label class="option-label">
+          <input type="radio" name="q-${q.id}" value="${optIdx}">
+          <span>${opt}</span>
+        </label>
+      `;
+    });
+
+    card.innerHTML = `
+      <div class="quiz-card-top">
+        <span class="question-tag">${q.year}</span>
+        <button class="btn btn-outline btn-sm" onclick="toggleQuestionLanguage('${q.id}')">
+          🌐 ${currentLang === 'en' ? 'แปลเป็นไทย' : 'Switch to EN'}
+        </button>
+      </div>
+      <div class="question-text">${qContent.question}</div>
+      <div class="options-group">
+        ${optionsHtml}
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary btn-sm" onclick="checkAnswer('${q.id}', ${q.correct})">
+          ${currentLang === 'en' ? 'Check Answer' : 'ตรวจคำตอบ'}
+        </button>
+      </div>
+      <div class="explanation-box" id="exp-${q.id}">
+        <div class="explanation-title" id="exp-title-${q.id}"></div>
+        <div id="exp-body-${q.id}">${qContent.explanation}</div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise();
+  }
+}
+
+function toggleQuestionLanguage(qId) {
+  langState[qId] = langState[qId] === 'en' ? 'th' : 'en';
+  initQuiz();
+}
+
+function toggleGlobalLanguage() {
+  const allKeys = Object.keys(langState);
+  const targetLang = langState[allKeys[0]] === 'en' ? 'th' : 'en';
+  allKeys.forEach(k => langState[k] = targetLang);
+  document.getElementById('global-lang-btn').innerText = 
+    targetLang === 'en' ? '🌐 Switch All to Thai / สลับเป็นภาษาไทยทั้งหมด' : '🌐 Switch All to English / สลับเป็นภาษาอังกฤษทั้งหมด';
+  initQuiz();
+}
+
+function checkAnswer(qId, correctIndex) {
+  const selected = document.querySelector(`input[name="q-${qId}"]:checked`);
+  const expBox = document.getElementById(`exp-${qId}`);
+  const expTitle = document.getElementById(`exp-title-${qId}`);
+  const currentLang = langState[qId];
+
+  if (!selected) {
+    alert(currentLang === 'en' ? 'Please select an option first!' : 'กรุณาเลือกตัวเลือกก่อนตรวจคำตอบ!');
+    return;
+  }
+
+  const userChoice = parseInt(selected.value);
+  expBox.classList.add('show');
+
+  if (userChoice === correctIndex) {
+    expBox.className = 'explanation-box show correct';
+    expTitle.innerHTML = currentLang === 'en' ? '✓ Correct!' : '✓ ถูกต้อง!';
+  } else {
+    expBox.className = 'explanation-box show incorrect';
+    expTitle.innerHTML = currentLang === 'en' ? '✗ Incorrect (Penalty: -0.5 mark)' : '✗ คำตอบไม่ถูกต้อง (ถูกหักคะแนน 1/2 ข้อ)';
+  }
+
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise();
+  }
+}
+
+window.onload = initQuiz;
+</script>
+
+</body>
+</html>
